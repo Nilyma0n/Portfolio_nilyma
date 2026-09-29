@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Asifa Akther Nilyma — Computer Science & Engineering</title>
-<meta name="description" content="Portfolio of Asifa Akther Nilyma — CSE undergraduate, full-stack developer, NLP researcher, and community organizer in Sylhet, Bangladesh.">
+<meta name="description" content="Portfolio of Asifa Akther Nilyma — CSE graduate, full-stack developer, NLP researcher, and community organizer in Sylhet, Bangladesh.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Manrope:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -206,32 +206,26 @@
   .project-card .p-link{ font-size:0.85rem; color:var(--gold); border-bottom:1px solid var(--gold-dim); width:fit-content; }
   .project-card .p-link:hover{ color:var(--cream); border-color:var(--cream); }
 
-  /* fun tool card */
-  .project-card.fun-tool{ grid-column:1 / -1; gap:18px; }
-  .fun-badge{
-    display:inline-block; font-family:'IBM Plex Mono', monospace; font-size:0.7rem;
-    color:var(--sage); border:1px solid var(--sage); padding:3px 9px; border-radius:2px; width:fit-content;
+  /* ---------- PROJECTS / LIVE LINKS ---------- */
+  .project-card .fun-badge{
+    display:inline-block;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.7rem;
+    color:var(--sage);
+    border:1px solid var(--sage);
+    padding:3px 9px;
+    border-radius:2px;
+    width:fit-content;
+    margin-top:4px;
   }
-  .mood-tool{ display:flex; flex-direction:column; gap:12px; max-width:640px; }
-  .mood-tool textarea{
-    width:100%; min-height:80px; resize:vertical; background:var(--bg-panel-2);
-    border:1px solid var(--line); color:var(--cream); font-family:'Manrope', sans-serif;
-    font-size:0.92rem; padding:12px 14px; border-radius:2px;
+
+  .project-card .project-card-action{
+    margin-top:6px;
   }
-  .mood-tool textarea:focus-visible{ outline:2px solid var(--gold); outline-offset:1px; }
-  .mood-actions{ display:flex; align-items:center; gap:16px; flex-wrap:wrap; }
-  .mood-result{
-    font-family:'IBM Plex Mono', monospace; font-size:0.85rem; padding:8px 14px;
-    border-radius:2px; border:1px solid var(--line); display:none; align-items:center; gap:8px;
+
+  .project-card .p-link{
+    margin-right:12px;
   }
-  .mood-result.show{ display:inline-flex; }
-  .mood-result .dot{ width:8px; height:8px; border-radius:50%; }
-  .mood-result.positive{ border-color:var(--sage); color:var(--sage); }
-  .mood-result.positive .dot{ background:var(--sage); }
-  .mood-result.negative{ border-color:var(--plum-bright); color:var(--plum-bright); }
-  .mood-result.negative .dot{ background:var(--plum-bright); }
-  .mood-result.neutral{ border-color:var(--gold-dim); color:var(--gold-dim); }
-  .mood-result.neutral .dot{ background:var(--gold-dim); }
 
   /* ---------- TIMELINE ---------- */
   .timeline{ position:relative; padding-left:28px; border-left:1px solid var(--line); display:flex; flex-direction:column; gap:38px; }
@@ -315,7 +309,7 @@
     <div>
       <div class="hero-eyebrow-line reveal-init" data-reveal></div>
       <h1 class="reveal-init" data-reveal>Asifa Akther<br>Nilyma</h1>
-      <p class="role reveal-init" data-reveal>Computer Science &amp; Engineering Undergraduate</p>
+      <p class="role reveal-init" data-reveal>Computer Science &amp; Engineering Graduate</p>
       <p class="lede reveal-init" data-reveal>
         I build web applications, research Bengali sentiment analysis, and organize student
         communities across Sylhet — moving between code, research papers, and campus leadership.
@@ -342,10 +336,15 @@
     <div class="about-grid">
       <div class="reveal-init" data-sr>
         <p>
-          I'm a Computer Science and Engineering graduate from Sylhet International University, building full-stack web applications and contributing to machine learning research. I'm motivated by real-world impact — whether that's a dataset that helps other researchers, an application that solves a genuine problem, or a community that runs a little better because I showed up.
+          I'm a Computer Science and Engineering graduate from Sylhet International University,
+          building full-stack web applications and contributing to machine learning research.
+          I'm motivated by real-world impact — whether that's a dataset that helps other
+          researchers, an application that solves a genuine problem, or a community
+          that runs a little better because I showed up.
         </p>
         <p>
-          Outside of coursework, I hold leadership roles across several campus and youth organizations, which keeps me
+          Outside of coursework, I host trips for Women Travelers of Bangladesh and hold
+          leadership roles across several campus and youth organizations, which keeps me
           equally comfortable presenting a thesis and coordinating a fifty-person event.
         </p>
       </div>
@@ -441,49 +440,126 @@
       <div class="kicker">04 — projects</div>
       <h2>Things I've built</h2>
     </div>
+
     <div class="project-grid">
+
       <div class="project-card reveal-init" data-sr>
         <div class="p-index">01</div>
-        <h4>Project name</h4>
-        <p>One or two sentences on what it does and the problem it solves.</p>
-        <div class="p-tags"><span class="tag">React</span><span class="tag">Node.js</span></div>
-        <a class="p-link" href="#" target="_blank" rel="noopener">View project</a>
-      </div>
-      <div class="project-card reveal-init" data-sr>
-        <div class="p-index">02</div>
-        <h4>Project name</h4>
-        <p>One or two sentences on what it does and the problem it solves.</p>
-        <div class="p-tags"><span class="tag">Python</span><span class="tag">FastAPI</span></div>
-        <a class="p-link" href="#" target="_blank" rel="noopener">View project</a>
-      </div>
-      <div class="project-card reveal-init" data-sr>
-        <div class="p-index">03</div>
-        <h4>Project name</h4>
-        <p>One or two sentences on what it does and the problem it solves.</p>
-        <div class="p-tags"><span class="tag accent">Machine Learning</span></div>
-        <a class="p-link" href="#" target="_blank" rel="noopener">View project</a>
-      </div>
-      <div class="project-card reveal-init" data-sr>
-        <div class="p-index">04</div>
-        <h4>Project name</h4>
-        <p>One or two sentences on what it does and the problem it solves.</p>
-        <div class="p-tags"><span class="tag">Next.js</span><span class="tag">MongoDB</span></div>
-        <a class="p-link" href="#" target="_blank" rel="noopener">View project</a>
+        <h4>TripDaoBD</h4>
+        <p>
+          A premium Bangladesh tourism platform connecting travelers with destinations,
+          hotels, restaurants, transportation, hosts, photographers, and emergency services.
+        </p>
+        <div class="p-tags">
+          <span class="tag">React</span>
+          <span class="tag">TypeScript</span>
+          <span class="tag">Node.js</span>
+          <span class="tag">MySQL</span>
+        </div>
+        <a class="p-link" href="https://github.com/Nilyma0n/TripDaoBd" target="_blank" rel="noopener">View on GitHub</a>
+        <a class="p-link" href="trip-dao-bd.vercel.app" target="_blank" rel="noopener">Open live project</a>
       </div>
 
-      <!-- fun interactive tool, tied to her sentiment-analysis thesis -->
-      <div class="project-card fun-tool reveal-init" data-sr>
-        <span class="fun-badge">fun tool · try it</span>
-        <h4>Mood check</h4>
-        <p>A tiny playful demo inspired by my thesis work on sentiment analysis — type a sentence and see how it reads. It's a simple keyword-based toy, not the real research model.</p>
-        <div class="mood-tool">
-          <textarea id="moodInput" placeholder="Type a sentence in English or Bangla..."></textarea>
-          <div class="mood-actions">
-            <button class="btn btn-primary" id="moodBtn" type="button">Check mood</button>
-            <span class="mood-result" id="moodResult"><span class="dot"></span><span id="moodResultText">Neutral</span></span>
-          </div>
+      <div class="project-card reveal-init" data-sr>
+        <div class="p-index">02</div>
+        <h4>Stroke Risk Prediction</h4>
+        <p>
+          A machine learning project focused on stroke-risk prediction using a structured
+          health dataset and a prediction interface for estimating risk.
+        </p>
+        <div class="p-tags">
+          <span class="tag accent">Machine Learning</span>
+          <span class="tag">Python</span>
+          <span class="tag">Scikit-learn</span>
+        </div>
+        <a class="p-link" href="stroke-risk-prediction-inky.vercel.app/" target="_blank" rel="noopener">Open live project</a>
+        <a class="p-link" href="https://github.com/Nilyma0n/Stroke_Risk_Prediction" target="_blank" rel="noopener">View source</a>
+      </div>
+
+      <div class="project-card reveal-init" data-sr>
+        <div class="p-index">03</div>
+        <h4>Twitter Sentiment Prediction</h4>
+        <p>
+          A sentiment-analysis project for classifying text and exploring how machine
+          learning can be applied to social-media sentiment.
+        </p>
+        <div class="p-tags">
+          <span class="tag accent">NLP</span>
+          <span class="tag">Python</span>
+          <span class="tag">Machine Learning</span>
+        </div>
+        <a class="p-link" href="https://github.com/Nilyma0n/Twitter_Sentiment_Prediction" target="_blank" rel="noopener">View on GitHub</a>
+      </div>
+
+      <div class="project-card reveal-init" data-sr>
+        <div class="p-index">04</div>
+        <h4>Car Price Prediction — RateMyRide</h4>
+        <p>
+          A machine learning application that predicts car prices from vehicle features,
+          turning a trained regression model into a practical prediction experience.
+        </p>
+        <div class="p-tags">
+          <span class="tag accent">Machine Learning</span>
+          <span class="tag">Python</span>
+          <span class="tag">Regression</span>
+        </div>
+        <a class="p-link" href="https://github.com/Nilyma0n/Car_Price_Prediction" target="_blank" rel="noopener">View on GitHub</a>
+        <a class="p-link" href="https://nilyma0n.github.io/Car_Price_Prediction/" target="_blank" rel="noopener">Open live project</a>
+      </div>
+
+      <div class="project-card reveal-init" data-sr>
+        <div class="p-index">05</div>
+        <h4>Dynamic Landscape &amp; Weather Simulator</h4>
+        <p>
+          An interactive 2D environmental simulation built in C++ using graphics.h,
+          featuring dynamic weather, day/night transitions, procedural river waves,
+          and animated birds, boats, and pedestrians.
+        </p>
+        <div class="p-tags">
+          <span class="tag">C++</span>
+          <span class="tag">graphics.h</span>
+          <span class="tag">Animation</span>
+          <span class="tag">Simulation</span>
+        </div>
+        <a class="p-link" href="https://github.com/Nilyma0n/Dynamic-Landscape-Weather-Simulator" target="_blank" rel="noopener">View source</a>
+      </div>
+
+      <div class="project-card reveal-init" data-sr>
+        <div class="p-index">06</div>
+        <h4>Mood Check</h4>
+
+        <p>
+          A small playful sentiment demo inspired by my Bengali sentiment-analysis
+          research. Click below to open the live version and try it there.
+        </p>
+
+        <div class="fun-badge">fun tool · live demo</div>
+
+        <div class="project-card-action">
+          <a class="p-link" href="YOUR_MOOD_CHECK_LIVE_URL" target="_blank" rel="noopener">
+            Open Mood Check
+          </a>
         </div>
       </div>
+
+      <div class="project-card reveal-init" data-sr>
+        <div class="p-index">07</div>
+        <h4>Brain Check</h4>
+
+        <p>
+          A quick interactive brain game built for fun. Click below to leave the
+          portfolio and play the live game on its own page.
+        </p>
+
+        <div class="fun-badge">fun game · live game</div>
+
+        <div class="project-card-action">
+          <a class="p-link" href="YOUR_BRAIN_CHECK_LIVE_URL" target="_blank" rel="noopener">
+            Play Brain Check
+          </a>
+        </div>
+      </div>
+
     </div>
   </section>
 
@@ -705,28 +781,8 @@
     });
   }
 
-  // fun "mood check" tool — simple client-side keyword demo, not a real model
-  const moodBtn = document.getElementById('moodBtn');
-  const moodInput = document.getElementById('moodInput');
-  const moodResult = document.getElementById('moodResult');
-  const moodResultText = document.getElementById('moodResultText');
-  const positiveWords = ['good','great','love','happy','amazing','excellent','wonderful','nice','ভালো','খুশি','দারুণ','চমৎকার'];
-  const negativeWords = ['bad','hate','sad','terrible','awful','angry','worst','খারাপ','দুঃখ','বাজে','রাগ'];
-  if (moodBtn) {
-    moodBtn.addEventListener('click', () => {
-      const text = moodInput.value.toLowerCase();
-      let score = 0;
-      positiveWords.forEach(w => { if (text.includes(w)) score++; });
-      negativeWords.forEach(w => { if (text.includes(w)) score--; });
-      moodResult.classList.remove('positive','negative','neutral');
-      let label = 'Neutral';
-      let cls = 'neutral';
-      if (score > 0) { label = 'Positive'; cls = 'positive'; }
-      else if (score < 0) { label = 'Negative'; cls = 'negative'; }
-      moodResult.classList.add(cls, 'show');
-      moodResultText.textContent = label;
-    });
-  }
+  // Mood Check and Brain Check are intentionally hosted as separate live experiences.
+  // Their buttons above open the external live pages in a new tab.
 </script>
 
 </body>
