@@ -206,26 +206,53 @@
   .project-card .p-link{ font-size:0.85rem; color:var(--gold); border-bottom:1px solid var(--gold-dim); width:fit-content; }
   .project-card .p-link:hover{ color:var(--cream); border-color:var(--cream); }
 
-  /* ---------- PROJECTS / LIVE LINKS ---------- */
-  .project-card .fun-badge{
-    display:inline-block;
-    font-family:'IBM Plex Mono', monospace;
-    font-size:0.7rem;
-    color:var(--sage);
-    border:1px solid var(--sage);
-    padding:3px 9px;
-    border-radius:2px;
-    width:fit-content;
-    margin-top:4px;
+  /* ---------- MOOD CHECK ---------- */
+  .project-card.fun-tool{ grid-column:1 / -1; gap:18px; }
+  .fun-badge{
+    display:inline-block; font-family:'IBM Plex Mono', monospace; font-size:0.7rem;
+    color:var(--sage); border:1px solid var(--sage); padding:3px 9px; border-radius:2px; width:fit-content;
+  }
+  .mood-intro{ max-width:62ch; }
+  .mood-tool{
+    max-width:760px; background:var(--bg-panel-2); border:1px solid var(--line);
+    padding:26px; display:flex; flex-direction:column; gap:16px; border-radius:3px;
+  }
+  .mood-tool .mood-question{ font-family:'Fraunces',serif; font-size:1.35rem; color:var(--cream); }
+  .mood-tool .mood-hint{ color:var(--muted); font-size:0.82rem; }
+  .mood-input-wrap{ position:relative; }
+  .mood-tool textarea{
+    width:100%; min-height:112px; resize:vertical; background:var(--bg);
+    border:1px solid var(--line); color:var(--cream); font-family:'Manrope',sans-serif;
+    font-size:0.94rem; line-height:1.6; padding:15px 15px 28px; border-radius:2px;
+  }
+  .mood-tool textarea::placeholder{ color:var(--muted); }
+  .mood-tool textarea:focus{ border-color:var(--gold); outline:none; box-shadow:0 0 0 2px rgba(199,154,91,0.08); }
+  .mood-count{ position:absolute; right:12px; bottom:9px; font-family:'IBM Plex Mono',monospace; font-size:0.68rem; color:var(--muted); }
+  .mood-actions{ display:flex; align-items:center; gap:12px; flex-wrap:wrap; }
+  .mood-reset{ background:transparent; }
+  .mood-result-panel{
+    display:none; border:1px solid var(--line); background:var(--bg); padding:20px;
+    animation:moodIn 0.35s ease;
+  }
+  .mood-result-panel.show{ display:block; }
+  @keyframes moodIn{ from{opacity:0;transform:translateY(6px)} to{opacity:1;transform:translateY(0)} }
+  .mood-result-top{ display:flex; align-items:center; gap:14px; }
+  .mood-emoji{ font-size:2.1rem; line-height:1; }
+  .mood-result-title{ font-family:'Fraunces',serif; font-size:1.25rem; }
+  .mood-result-label{ font-family:'IBM Plex Mono',monospace; font-size:0.72rem; color:var(--gold-dim); margin-top:2px; }
+  .mood-result-text{ color:var(--cream-dim); font-size:0.9rem; margin-top:12px; max-width:62ch; }
+  .mood-meter{ height:6px; background:rgba(244,234,217,0.08); margin-top:16px; overflow:hidden; }
+  .mood-meter-fill{ height:100%; width:0; background:var(--gold); transition:width 0.5s ease; }
+  .mood-suggestion{ color:var(--gold); font-size:0.82rem; margin-top:12px; }
+  .mood-tool .btn-primary:disabled{ opacity:0.55; cursor:not-allowed; }
+  @media (max-width:640px){
+    .mood-tool{ padding:20px; }
+    .mood-tool .mood-question{ font-size:1.2rem; }
   }
 
-  .project-card .project-card-action{
-    margin-top:6px;
-  }
-
-  .project-card .p-link{
-    margin-right:12px;
-  }
+  /* ---------- BRAIN CHECK LINK ---------- */
+  .project-card .project-card-action{ margin-top:6px; }
+  .project-card .p-link{ margin-right:12px; }
 
   /* ---------- TIMELINE ---------- */
   .timeline{ position:relative; padding-left:28px; border-left:1px solid var(--line); display:flex; flex-direction:column; gap:38px; }
@@ -336,7 +363,7 @@
     <div class="about-grid">
       <div class="reveal-init" data-sr>
         <p>
-          I'm a Computer Science and Engineering graduate from Sylhet International University,
+          Computer Science and Engineering graduate from Sylhet International University,
           building full-stack web applications and contributing to machine learning research.
           I'm motivated by real-world impact — whether that's a dataset that helps other
           researchers, an application that solves a genuine problem, or a community
@@ -472,7 +499,6 @@
           <span class="tag">Python</span>
           <span class="tag">Scikit-learn</span>
         </div>
-        <a class="p-link" href="stroke-risk-prediction-inky.vercel.app/" target="_blank" rel="noopener">Open live project</a>
         <a class="p-link" href="https://github.com/Nilyma0n/Stroke_Risk_Prediction" target="_blank" rel="noopener">View source</a>
       </div>
 
@@ -524,42 +550,58 @@
         <a class="p-link" href="https://github.com/Nilyma0n/Dynamic-Landscape-Weather-Simulator" target="_blank" rel="noopener">View source</a>
       </div>
 
-      <div class="project-card reveal-init" data-sr>
-        <div class="p-index">06</div>
+      <div class="project-card fun-tool reveal-init" data-sr>
+        <span class="fun-badge">fun tool · try it here</span>
         <h4>Mood Check</h4>
-
-        <p>
-          A small playful sentiment demo inspired by my Bengali sentiment-analysis
-          research. Click below to open the live version and try it there.
+        <p class="mood-intro">
+          How are you feeling today? Take a moment, describe your mood, and let this
+          small browser-based mood checker look for emotional signals in your words.
         </p>
 
-        <div class="fun-badge">fun tool · live demo</div>
+        <div class="mood-tool">
+          <div>
+            <div class="mood-question">How are you feeling today?</div>
+            <div class="mood-hint">Write a few words or a sentence in English or Bangla.</div>
+          </div>
 
-        <div class="project-card-action">
-          <a class="p-link" href="YOUR_MOOD_CHECK_LIVE_URL" target="_blank" rel="noopener">
-            Open Mood Check
-          </a>
+          <div class="mood-input-wrap">
+            <textarea id="moodInput" maxlength="500" placeholder="e.g. I am feeling very bad today... or আজ খুব ভালো লাগছে..."></textarea>
+            <span class="mood-count" id="moodCount">0/500</span>
+          </div>
+
+          <div class="mood-actions">
+            <button class="btn btn-primary" id="moodBtn" type="button">Check My Mood →</button>
+            <button class="btn btn-ghost mood-reset" id="moodReset" type="button">Clear</button>
+          </div>
+
+          <div class="mood-result-panel" id="moodResult" aria-live="polite">
+            <div class="mood-result-top">
+              <div class="mood-emoji" id="moodEmoji">🙂</div>
+              <div>
+                <div class="mood-result-title" id="moodResultTitle">You seem to be feeling neutral.</div>
+                <div class="mood-result-label" id="moodResultLabel">Mood · Neutral</div>
+              </div>
+            </div>
+            <p class="mood-result-text" id="moodResultText"></p>
+            <div class="mood-meter"><div class="mood-meter-fill" id="moodMeterFill"></div></div>
+            <div class="mood-suggestion" id="moodSuggestion"></div>
+          </div>
         </div>
       </div>
 
       <div class="project-card reveal-init" data-sr>
         <div class="p-index">07</div>
         <h4>Brain Check</h4>
-
         <p>
-          A quick interactive brain game built for fun. Click below to leave the
-          portfolio and play the live game on its own page.
+          A quick interactive brain game built for fun. Open the live game in a separate
+          page and see how quickly you can solve the challenges.
         </p>
-
         <div class="fun-badge">fun game · live game</div>
-
         <div class="project-card-action">
-          <a class="p-link" href="YOUR_BRAIN_CHECK_LIVE_URL" target="_blank" rel="noopener">
-            Play Brain Check
-          </a>
+          <a class="p-link" href="https://github.com/Nilyma0n/memory-game" target="_blank" rel="noopener">View source</a>
+          <a class="p-link" href="https://memory-game-five-lime.vercel.app/" target="_blank" rel="noopener">Play Brain Check →</a>
         </div>
       </div>
-
     </div>
   </section>
 
@@ -714,7 +756,7 @@
     </div>
   </section>
 
-  <footer>© 2026 Asifa Akther Nilyma. Built with care in Sylhet.</footer>
+  <footer>© 2026 Asifa Akther Nilyma</footer>
 
 </main>
 
@@ -781,8 +823,183 @@
     });
   }
 
-  // Mood Check and Brain Check are intentionally hosted as separate live experiences.
-  // Their buttons above open the external live pages in a new tab.
+  // Mood Check — lightweight client-side mood detector.
+  // It is intentionally a playful rule-based demo, not a medical or clinical assessment.
+  const moodBtn = document.getElementById('moodBtn');
+  const moodReset = document.getElementById('moodReset');
+  const moodInput = document.getElementById('moodInput');
+  const moodCount = document.getElementById('moodCount');
+  const moodResult = document.getElementById('moodResult');
+  const moodEmoji = document.getElementById('moodEmoji');
+  const moodResultTitle = document.getElementById('moodResultTitle');
+  const moodResultLabel = document.getElementById('moodResultLabel');
+  const moodResultText = document.getElementById('moodResultText');
+  const moodMeterFill = document.getElementById('moodMeterFill');
+  const moodSuggestion = document.getElementById('moodSuggestion');
+
+  const moodProfiles = {
+    happy: {
+      label: 'Happy', emoji: '😊', color: 'var(--sage)',
+      phrases: ['very happy','really happy','so happy','extremely happy','feeling great','feel great','feeling good','feel good','doing great','খুব ভালো','অনেক ভালো','খুব খুশি','অনেক খুশি','দারুণ লাগছে','ভালো লাগছে','খুশি লাগছে'],
+      words: ['happy','joyful','cheerful','great','good','love','wonderful','amazing','excellent','nice','খুশি','ভালো','দারুণ','চমৎকার','আনন্দ','সুখী'],
+      text: 'Your words contain positive signals. It sounds like there is some good energy in your day.',
+      suggestion: '💡 Enjoy the moment and share your positive energy with someone around you.'
+    },
+    excited: {
+      label: 'Excited', emoji: '🤩', color: 'var(--gold)',
+      phrases: ['so excited','very excited','really excited','cannot wait','can’t wait','looking forward','অনেক উত্তেজিত','খুব এক্সাইটেড','অপেক্ষা করতে পারছি না'],
+      words: ['excited','thrilled','eager','উত্তেজিত','এক্সাইটেড'],
+      text: 'There are strong signs of excitement and anticipation in what you wrote.',
+      suggestion: '💡 Put that energy into something you are looking forward to.'
+    },
+    relaxed: {
+      label: 'Relaxed', emoji: '😌', color: 'var(--sage)',
+      phrases: ['very calm','feel calm','feeling calm','at peace','peaceful','feeling peaceful','শান্ত লাগছে','খুব শান্ত','মন শান্ত','শান্তিতে আছি'],
+      words: ['calm','relaxed','peaceful','peace','chill','শান্ত','নিরিবিলি','স্বস্তি'],
+      text: 'Your words suggest a calm and peaceful state of mind.',
+      suggestion: '💡 Keep a little space for yourself and enjoy the calm.'
+    },
+    sad: {
+      label: 'Sad', emoji: '😔', color: 'var(--plum-bright)',
+      phrases: ['very sad','really sad','so sad','feeling bad','feel bad','feeling terrible','feel terrible','not feeling good','not feeling well','মন খারাপ','খুব খারাপ','ভালো লাগছে না','ভালো নেই','কষ্ট লাগছে','খুব দুঃখ'],
+      words: ['sad','unhappy','lonely','hurt','heartbroken','depressed','bad','terrible','awful','miserable','দুঃখ','কষ্ট','খারাপ','মনখারাপ','একা'],
+      text: 'Some of your words suggest that you may be having a difficult or low moment.',
+      suggestion: '💡 Be gentle with yourself. A little rest or talking to someone you trust may help.'
+    },
+    angry: {
+      label: 'Angry', emoji: '😤', color: 'var(--plum-bright)',
+      phrases: ['very angry','really angry','so angry','fed up','furious','খুব রাগ','অনেক রাগ','রাগ লাগছে','মাথা গরম'],
+      words: ['angry','anger','furious','annoyed','irritated','frustrated','রাগ','বিরক্ত','ক্ষুব্ধ','হতাশ'],
+      text: 'Your words contain signals of frustration, irritation, or anger.',
+      suggestion: '💡 Pause for a moment, breathe, and give yourself some space before reacting.'
+    },
+    stressed: {
+      label: 'Stressed', emoji: '😰', color: 'var(--plum-bright)',
+      phrases: ['very stressed','really stressed','so stressed','too much pressure','under pressure','feeling overwhelmed','খুব চাপ','অনেক চাপ','চাপ লাগছে','অনেক টেনশন','খুব টেনশন'],
+      words: ['stressed','stress','pressure','overwhelmed','worried','worry','anxious','anxiety','panic','টেনশন','চাপ','দুশ্চিন্তা','উদ্বিগ্ন'],
+      text: 'Your message suggests pressure, worry, or an overloaded feeling.',
+      suggestion: '💡 Take one small thing at a time. A short break and a few slow breaths can create some space.'
+    },
+    tired: {
+      label: 'Tired', emoji: '😴', color: 'var(--gold-dim)',
+      phrases: ['very tired','really tired','so tired','completely exhausted','very exhausted','need some rest','ঘুম পাচ্ছে','খুব ক্লান্ত','অনেক ক্লান্ত','বিশ্রাম দরকার'],
+      words: ['tired','exhausted','sleepy','drained','fatigued','ক্লান্ত','অবসন্ন','ঘুম','বিশ্রাম'],
+      text: 'Your words suggest that your energy may be running low.',
+      suggestion: '💡 If you can, slow down for a while and give yourself some proper rest.'
+    }
+  };
+
+  const negationPatterns = [
+    /\bnot\s+(?:very\s+|really\s+|so\s+)?happy\b/i,
+    /\bnot\s+(?:very\s+|really\s+|so\s+)?good\b/i,
+    /\bnot\s+feeling\s+(?:very\s+|really\s+|so\s+)?good\b/i,
+    /\bnot\s+okay\b/i,
+    /\bnever\s+(?:happy|good|calm)\b/i,
+    /ভালো\s+লাগছে\s+না/i,
+    /ভালো\s+নেই/i,
+    /খুশি\s+নই/i
+  ];
+
+  function normalizeMoodText(value){
+    return value
+      .toLowerCase()
+      .replace(/[.,!?;:()[\]{}"'`]/g, ' ')
+      .replace(/\s+/g, ' ')
+      .trim();
+  }
+
+  function countMatches(text, list, weight){
+    let score = 0;
+    list.forEach(term => {
+      if (text.includes(term.toLowerCase())) score += weight;
+    });
+    return score;
+  }
+
+  function detectMood(raw){
+    const text = normalizeMoodText(raw);
+    const scores = {};
+    Object.entries(moodProfiles).forEach(([key, profile]) => {
+      scores[key] = countMatches(text, profile.phrases, 3) + countMatches(text, profile.words, 1);
+    });
+
+    // Explicit negative phrases get a strong correction so "very bad" or
+    // "not good" cannot be overridden by a generic positive keyword.
+    const isNegativeExpression = negationPatterns.some(pattern => pattern.test(raw)) ||
+      /\b(?:very|really|so|extremely|too)\s+(?:bad|sad|terrible|awful|angry|stressed|tired)\b/i.test(raw) ||
+      /(?:খুব|ভীষণ|অনেক)\s+(?:খারাপ|দুঃখ|রাগ|চাপ|ক্লান্ত)/i.test(raw);
+
+    if (isNegativeExpression) {
+      scores.sad += 4;
+      if (/\b(?:angry|anger|furious|রাগ)\b/i.test(raw)) scores.angry += 4;
+      if (/\b(?:stressed|stress|pressure|anxious|চাপ|টেনশন)\b/i.test(raw)) scores.stressed += 4;
+      if (/\b(?:tired|exhausted|sleepy|ক্লান্ত|ঘুম)\b/i.test(raw)) scores.tired += 4;
+      if (/(?:খারাপ|ভালো\s+লাগছে\s+না|ভালো\s+নেই|দুঃখ)/i.test(raw)) scores.sad += 3;
+    }
+
+    const sorted = Object.entries(scores).sort((a,b) => b[1] - a[1]);
+    if (!sorted.length || sorted[0][1] <= 0) return { key:'neutral', score:0 };
+
+    const [key, score] = sorted[0];
+    return { key, score };
+  }
+
+  function showMoodResult(raw){
+    const result = detectMood(raw);
+    if (result.key === 'neutral') {
+      moodEmoji.textContent = '🙂';
+      moodResultTitle.textContent = 'You seem to be feeling neutral.';
+      moodResultLabel.textContent = 'Mood · Neutral';
+      moodResultText.textContent = 'I could not find a strong emotional signal in your words. Sometimes neutral is exactly how a day feels.';
+      moodSuggestion.textContent = '💡 If you want, describe a little more about what is on your mind.';
+      moodMeterFill.style.width = '50%';
+    } else {
+      const profile = moodProfiles[result.key];
+      moodEmoji.textContent = profile.emoji;
+      moodResultTitle.textContent = `You seem to be feeling ${profile.label.toLowerCase()}!`;
+      moodResultLabel.textContent = `Mood · ${profile.label}`;
+      moodResultText.textContent = profile.text;
+      moodSuggestion.textContent = profile.suggestion;
+      const meter = Math.min(92, 52 + result.score * 8);
+      moodMeterFill.style.width = `${meter}%`;
+    }
+    moodResult.classList.remove('show');
+    requestAnimationFrame(() => moodResult.classList.add('show'));
+  }
+
+  if (moodInput) {
+    moodInput.addEventListener('input', () => {
+      moodCount.textContent = `${moodInput.value.length}/500`;
+    });
+  }
+
+  if (moodBtn) {
+    moodBtn.addEventListener('click', () => {
+      const text = moodInput.value.trim();
+      if (!text) {
+        moodInput.focus();
+        moodResult.classList.add('show');
+        moodEmoji.textContent = '💭';
+        moodResultTitle.textContent = 'Tell me a little about your mood.';
+        moodResultLabel.textContent = 'Mood · Waiting for input';
+        moodResultText.textContent = 'Write a few words or a sentence first, then check your mood.';
+        moodMeterFill.style.width = '0%';
+        moodSuggestion.textContent = '💡 Try something like “I am feeling very tired today.”';
+        return;
+      }
+      showMoodResult(text);
+    });
+  }
+
+  if (moodReset) {
+    moodReset.addEventListener('click', () => {
+      moodInput.value = '';
+      moodCount.textContent = '0/500';
+      moodResult.classList.remove('show');
+      moodMeterFill.style.width = '0%';
+      moodInput.focus();
+    });
+  }
 </script>
 
 </body>
